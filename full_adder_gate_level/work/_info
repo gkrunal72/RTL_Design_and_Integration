@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/RTL_Desgin_and_Integration/full_adder_gate_level
+vfa
+Z1 !s110 1667942042
+!i10b 1
+!s100 9ISc1IL5FgndLWOHFGO5m3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I][_BOTh`8A0DG_dIOGz7@1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1667939923
+8fa.v
+Ffa.v
+!i122 5
+L0 1 25
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1667942042.000000
+!s107 fa.v|fa_tb.v|
+Z6 !s90 -reportprogress|300|fa_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vfa_tb
+R1
+!i10b 1
+!s100 i03Ii`c@]mgaN6`Hom^W=0
+R2
+IhG@H[?5zN:Oac[6LSDNYK1
+R3
+R0
+w1667942039
+8fa_tb.v
+Ffa_tb.v
+!i122 5
+L0 3 38
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 fa.v|fa_tb.v|
+R6
+!i113 1
+R7
