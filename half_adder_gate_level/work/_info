@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/RTL_Desgin_and_Integration/half_adder
+vha
+Z1 !s110 1667874886
+!i10b 1
+!s100 YM@>O`U`VUhN3GfOWNn<[2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Iio8N>g_2<JmoL@kg3Cm353
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1667874883
+8ha.v
+Fha.v
+!i122 11
+L0 1 11
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1667874886.000000
+!s107 ha.v|ha_tb.v|
+Z6 !s90 -reportprogress|300|ha_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vha_tb
+R1
+!i10b 1
+!s100 _U8Ng1PnQ`gl<UnalGOkN3
+R2
+ID0PKR1X^aN:jocg>DTnN?3
+R3
+R0
+w1667874727
+8ha_tb.v
+Fha_tb.v
+!i122 11
+L0 3 31
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ha.v|ha_tb.v|
+R6
+!i113 1
+R7
