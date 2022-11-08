@@ -10,23 +10,23 @@ z2
 cModel Technology
 dD:/RTL_Desgin_and_Integration/mux2x1_gate_level
 vmux2x1
-Z0 !s110 1667862396
+Z0 !s110 1667867847
 !i10b 1
 !s100 PTMU6EGPNd>fm_hjk`O103
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
 ImbFz;mnVciRGIcVf0g[KQ1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 dD:/RTL/mux2x1_gate_level
+Z3 dD:/RTL_Desgin_and_Integration/Mux2x1_gate_level
 w1667401333
 8mux2x1.v
 Fmux2x1.v
-!i122 22
+!i122 37
 L0 1 13
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1667862396.000000
+Z5 !s108 1667867847.000000
 !s107 mux2x1.v|mux2x1_tb.v|
 Z6 !s90 -reportprogress|300|mux2x1_tb.v|
 !i113 1
@@ -34,16 +34,16 @@ Z7 tCvgOpt 0
 vmux2x1_tb
 R0
 !i10b 1
-!s100 S80n<dZAFi@TZdGOOc`Jd1
+!s100 5M1Bgz^1ocG7]TXnS<Zz61
 R1
-Im`RG:J@7Z=gm3z4XOUVPZ3
+ITcWO<nUW2k^^g[gUzSc:o0
 R2
 R3
-w1667426728
+w1667867794
 8mux2x1_tb.v
 Fmux2x1_tb.v
-!i122 22
-L0 3 37
+!i122 37
+L0 3 36
 R4
 r1
 !s85 0
