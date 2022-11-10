@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/RTL_Desgin_and_Integration/mux4x1_assign
+vmux4x1
+Z1 !s110 1668117222
+!i10b 1
+!s100 5iVo^9Td]llOmEmn7>b1h1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I0;T8F[[IzbFXXi^mfb5Oc0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1668116785
+8mux4x1.v
+Fmux4x1.v
+!i122 2
+L0 25 17
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1668117222.000000
+!s107 mux4x1.v|mux4x1_tb.v|
+Z6 !s90 -reportprogress|300|mux4x1_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vmux4x1_tb
+R1
+!i10b 1
+!s100 M>j;gBc]AlH01dhm2Q;2i1
+R2
+I[cFjN:2hmaK>Q4e?;7in61
+R3
+R0
+w1668115984
+8mux4x1_tb.v
+Fmux4x1_tb.v
+!i122 2
+L0 25 43
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 mux4x1.v|mux4x1_tb.v|
+R6
+!i113 1
+R7
