@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/kgandhi/OneDrive/RTL_Desgin_and_Integration/mux8x1
+vmux4x1
+Z0 !s110 1668465765
+!i10b 1
+!s100 5iVo^9Td]llOmEmn7>b1h1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I0;T8F[[IzbFXXi^mfb5Oc0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/kgandhi/oneDrive/RTL_Desgin_and_Integration/mux8x1
+w1668135574
+8mux4x1.v
+Fmux4x1.v
+!i122 18
+L0 25 17
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1668465765.000000
+!s107 mux4x1.v|mux8x1.v|mux8x1_tb.v|
+Z6 !s90 -reportprogress|300|mux8x1_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vmux8x1
+R0
+!i10b 1
+!s100 g>:MQWN=nfFMOHe=ogj3d3
+R1
+I5n2S=izEGiddcOOh8h2G<0
+R2
+R3
+w1668464676
+8mux8x1.v
+Fmux8x1.v
+!i122 18
+L0 27 42
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 mux4x1.v|mux8x1.v|mux8x1_tb.v|
+R6
+!i113 1
+R7
+vmux8x1_tb
+R0
+!i10b 1
+!s100 ;02J5e0oASZfModLNZA?81
+R1
+II49>beEHn`WSUUbmQzA2T2
+R2
+R3
+w1668465761
+8mux8x1_tb.v
+Fmux8x1_tb.v
+!i122 18
+L0 26 53
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
