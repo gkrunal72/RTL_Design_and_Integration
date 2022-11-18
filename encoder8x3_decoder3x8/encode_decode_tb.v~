@@ -1,0 +1,179 @@
+
+/********************************************************************
+
+Module          :   encode_decode_tb
+
+Date            :   15 November, 2022
+
+Author          :   Krunal Gandhi
+
+Email           :   gkrunal72@gmail.com
+
+History         :   1. 15 November, 2022 - Initial implementation
+
+Summary         :   Implementation encode_decode_tb.
+
+Inputs          :   i0_de, i1_de, i2_de
+
+Outputs         :   o0_de, o1_de, o2_de, o3_de, o4_de, o5_de, o6_de, o7_de
+
+Instantiation   :   encoder8x3, decoder8x3
+
+********************************************************************/
+
+`include "encoder8x3.v"
+`include "decoder3x8.v"
+
+module encode_decode_tb;
+
+//Inputs to Encoder 8x3
+reg     i0_en_tb;
+reg     i1_en_tb;
+reg     i2_en_tb;
+reg     i3_en_tb;
+reg     i4_en_tb;
+reg     i5_en_tb;
+reg     i6_en_tb;
+reg     i7_en_tb;
+
+//Outputs of Encoder
+wire    o0_en_tb;
+wire    o1_en_tb;
+wire    o2_en_tb;
+
+//Outputs of Decoder 3x8
+wire    o0_de_tb;
+wire    o1_de_tb;
+wire    o2_de_tb;
+wire    o3_de_tb;
+wire    o4_de_tb;
+wire    o5_de_tb;
+wire    o6_de_tb;
+wire    o7_de_tb;
+
+//Inputs of Decoder
+wire    i0_de_tb;
+wire    i1_de_tb;
+wire    i2_de_tb;
+
+
+//Instatiation
+encoder8x3 en1 (
+    .i0_en( i0_en_tb),          
+    .i1_en( i1_en_tb),         
+    .i2_en( i2_en_tb),        
+    .i3_en( i3_en_tb),        
+    .i4_en( i4_en_tb),        
+    .i5_en( i5_en_tb),        
+    .i6_en( i6_en_tb),        
+    .i7_en( i7_en_tb),        
+    .o0_en( o0_en_tb),       
+    .o1_en( o1_en_tb),       
+    .o2_en( o2_en_tb)
+);
+
+decoder3x8 de1 (
+        .o0_de( o0_de_tb),
+        .o1_de( o1_de_tb),
+        .o2_de( o2_de_tb),
+        .o3_de( o3_de_tb),
+        .o4_de( o4_de_tb),
+        .o5_de( o5_de_tb),
+        .o6_de( o6_de_tb),
+        .o7_de( o7_de_tb),
+        .i0_de( i0_de_tb),
+        .i1_de( i1_de_tb),
+        .i2_de( i2_de_tb)
+     );
+
+initial begin
+    repeat (10) begin
+#1      i0_en_tb = 1;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 1;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+    
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 1;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 1;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 1;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 1;
+        i6_en_tb = 0;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 1;
+        i7_en_tb = 0;
+
+#1      i0_en_tb = 0;
+        i1_en_tb = 0;
+        i2_en_tb = 0;
+        i3_en_tb = 0;
+        i4_en_tb = 0;
+        i5_en_tb = 0;
+        i6_en_tb = 0;
+        i7_en_tb = 1;
+    end
+end
+
+initial begin
+
+    $dumpfile("encode_decode.vcd");
+    $dumpvars(0,encode_decode_tb);
+
+end
+
+initial begin
+
+    $monitor("i0_en = %b, i1_en = %b, i2_en = %b, i3_en = %b, i4_en = %b, i5_en = %b, i6_en = %b, i7_en = %b", i0_en_tb, i1_en_tb, i2_en_tb, i3_en_tb, i4_en_tb, i5_en_tb, i6_en_tb, i7_en_tb);
+    $monitor("o0_de = %b, o1_de = %b, o2_de = %b, o3_de = %b, o4_de = %b, o5_de = %b, o6_de = %b, o7_de = %b", o0_de_tb, o1_de_tb, o2_de_tb, o3_de_tb, o4_de_tb, o5_de_tb, o6_de_tb, o7_de_tb);
+
+end
+
+endmodule

@@ -1,0 +1,43 @@
+
+/********************************************************************
+
+Module          :   encoder8x3
+
+Date            :   15 November, 2022
+
+Author          :   Krunal Gandhi
+
+Email           :   gkrunal72@gmail.com
+
+History         :   1. 15 November, 2022 - Initial implementation
+
+Summary         :   Implementation encoder8x3.
+
+Inputs          :   i0_en, i1_en, i2_en, i3_en, i4_en, i5_en, i6_en, i7_en
+
+Outputs         :   o0_en, o1_en, o2_en
+
+Instantiation   :   N/A
+
+********************************************************************/
+
+module  encoder8x3 (
+    input   wire        i0_en,
+    input   wire        i1_en,
+    input   wire        i2_en,
+    input   wire        i3_en,
+    input   wire        i4_en,
+    input   wire        i5_en,
+    input   wire        i6_en,
+    input   wire        i7_en,
+    output  reg         o0_en,
+    output  reg         o1_en,
+    output  reg         o2_en
+);
+
+
+or a1 (o2_en, i4_en, i5_en, i6_en, i7_en);
+or a2 (o1_en, i2_en, i3_en, i6_en, i7_en);
+or a3 (o0_en, i1_en, i3_en, i5_en, i7_en);
+
+endmodule
