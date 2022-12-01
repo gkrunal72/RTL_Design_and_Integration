@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kgandhi/OneDrive/RTL_Desgin_and_Integration/counter
+vcounter_1bit
+Z1 !s110 1669929975
+!i10b 1
+!s100 ;SL6fhVomnkDJ1?L=jZJk2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IFe4;^c8V[9?4cmT26cLIM3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1669929703
+8counter_1bit.v
+Fcounter_1bit.v
+!i122 8
+L0 23 18
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1669929974.000000
+!s107 counter_1bit.v|counter_1bit_tb.v|
+Z6 !s90 -reportprogress|300|counter_1bit_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vcounter_1bit_tb
+R1
+!i10b 1
+!s100 oM<8iK[H8P0FccmDmMd:M2
+R2
+IzfW6`5Gm]>`Ac=BjJ`1S=3
+R3
+R0
+w1669929971
+8counter_1bit_tb.v
+Fcounter_1bit_tb.v
+!i122 8
+L0 24 40
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 counter_1bit.v|counter_1bit_tb.v|
+R6
+!i113 1
+R7

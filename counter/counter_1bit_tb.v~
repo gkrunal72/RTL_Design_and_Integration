@@ -1,0 +1,63 @@
+/********************************************************************
+
+Module          :   counter_1bit_tb
+
+Date            :   1 December, 2022
+
+Author          :   Krunal Gandhi
+
+Email           :   gkrunal72@gmail.com
+
+History         :   1. 1 December, 2022 - Initial implementation
+
+Summary         :   Implementation of testbench for 1 bit counter.
+
+Inputs          :   clk, rst
+
+Outputs         :   count
+
+Instantiation   :   counter_1bit
+
+********************************************************************/
+`include "counter_1bit.v"
+
+module counter_1bit_tb;
+    #(parameter N= 4)
+    reg          clk;
+    reg          rst;
+    wire [N-1:0] count;
+
+counter_1bit dut (
+    .clk(clk),
+    .rst(rst),
+    .count(count)
+);
+
+initial begin
+    clk <= 1'b0;
+    
+    repeat (100)
+        #5 rst <= $random;
+end
+
+initial begin
+    repeat (500)
+        #1 clk <= ~clk;
+end
+
+
+initial begin
+
+    $dumpfile("counter_1bit.vcd");
+    $dumpvars(0,counter_1bit_tb);
+
+end
+
+
+initial begin
+
+    $monitor("time = %0t, rst = %b, count = %d",$time, rst, count);
+
+end
+
+endmodule
