@@ -1,0 +1,49 @@
+`timescale 1ps/1fs;
+
+module clock;
+
+reg clk;
+real freq, tp, duty, duty_factor, jitter;
+real tp_jitter, jitter_factor;
+real previous_clk_time, current_clk_time, calc_tp, calc_freq;
+
+always begin
+
+    jitter_factor = (tp*(jitter/100));
+    tp_jitter = $urandom_range((tp-jitter_factor), (tp+jitter_factor));
+    //$display("tp_jitter=%0f",tp_jitter);
+
+    clk = 0; #(tp_jitter*(1-duty_factor));
+    clk = 1; #(tp_jitter*duty_factor);
+
+end
+
+initial begin
+
+    $value$plusargs("freq=%f",freq);    //Get freq value from simulation
+    tp = 1000000000/freq;               //Convert freq to time period
+    
+    $value$plusargs("duty=%f",duty);    //Get duty cycle value from sim
+    duty_factor = duty/100;             //Calculate duty factor as duty cycle value is in %
+    
+    $value$plusargs("jitter=%f", jitter);   //get jitter value from Sim
+
+    $display("tp=%0f, duty_factor=%0f, jitter=%0f",tp, duty_factor, jitter);
+
+    previous_clk_time = 0;
+
+    #200000000;
+    $finish;
+
+end
+
+always @ (posedge clk) begin
+    previous_clk_time = current_clk_time;
+    current_clk_time = $realtime;
+    calc_tp = current_clk_time - previous_clk_time;
+    calc_freq = 1000000000/calc_tp;
+    $display("jitter_factor = %0f, tp_jitter = %of, calc_freq = %0f", jitter_factor, tp_jitter, calc_freq);
+
+end
+
+endmodule

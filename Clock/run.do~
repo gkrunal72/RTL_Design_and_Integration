@@ -1,0 +1,5 @@
+vlog clock.v
+vsim clock +freq=50 +duty=50 +jitter=50
+add wave sim:/clock/*
+run -all
+
