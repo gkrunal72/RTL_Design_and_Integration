@@ -1,0 +1,7 @@
+vlog fa_nbit_tb.v
+
+vsim fa_nbit_tb
+
+add wave sim:/fa_nbit_tb/fa/*
+
+run -all

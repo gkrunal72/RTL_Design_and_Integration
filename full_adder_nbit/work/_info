@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kgandhi/OneDrive/RTL_Design_and_Integration/full_adder_nbit
+vfa
+Z1 !s110 1673391931
+!i10b 1
+!s100 nFi[m;g`RAJ?aTE9=nG?L3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I?=m_bKX?Fb3K;ka[L8V^H2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1673391782
+8fa.v
+Ffa.v
+!i122 38
+L0 1 11
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1673391931.000000
+!s107 fa.v|full_adder_nbit.v|fa_nbit_tb.v|
+Z6 !s90 -reportprogress|300|fa_nbit_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vfa_nbit
+R1
+!i10b 1
+!s100 EkUTjbW?NmY`Wf_gE8<R<0
+R2
+ISTE?eJ65HdU1HC>F7BBm<3
+R3
+R0
+w1673383382
+8full_adder_nbit.v
+Ffull_adder_nbit.v
+!i122 38
+L0 3 34
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 fa.v|full_adder_nbit.v|fa_nbit_tb.v|
+R6
+!i113 1
+R7
+vfa_nbit_tb
+R1
+!i10b 1
+!s100 64]T@2]EDKcECQ6EkA81A0
+R2
+IZzLen;[nM1lBAK8QI[Fz^1
+R3
+R0
+w1673391929
+8fa_nbit_tb.v
+Ffa_nbit_tb.v
+!i122 38
+L0 4 35
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
