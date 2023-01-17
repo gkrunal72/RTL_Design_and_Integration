@@ -65,7 +65,7 @@ module memory_tb;
         $value$plusargs("start_addr=%d",start_addr);
         $value$plusargs("num_writes=%d",num_writes);
         
-        if(start_addr+num_writes >= DEPTH) begin
+        if(start_addr+num_writes > DEPTH) begin
             $display("\nERROR: NUM OF WRITES SHOULD NOT EXCEED DEPTH TO AVOID MEMORY OVERWRITE\n");
             $finish;
         end

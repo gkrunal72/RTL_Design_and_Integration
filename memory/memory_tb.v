@@ -101,8 +101,7 @@ module memory_tb;
             //$display("Time = %0t\t addr_i = %h\t w_data_i = %h", $time, addr_i, w_data_i);
         end
 
-        #20;
-
+        @(posedge clk_i);
         addr_i = 0;
         w_data_i = 0;
         wr_rd_i = 0;
@@ -128,7 +127,7 @@ module memory_tb;
             //$display("Time = %0t\t addr_i = %h\t r_data_i = %h", $time, addr_i, r_data_o);
         end
 
-        #30
+        @(posedge clk_i);
         addr_i = 0;
         wr_rd_i = 1;
         valid_i = 0;
