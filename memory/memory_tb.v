@@ -1,0 +1,139 @@
+`include "memory.v"
+
+module memory_tb;
+
+    parameter   WIDTH = 8;  //Memory width
+    parameter   DEPTH = 16;  //Memory depth
+    parameter   ADDR_WIDTH = 4; //Num of address lines
+
+    
+    reg     clk_i;  //Clock
+    reg     rst_i;  //Reset
+    reg     [ADDR_WIDTH-1:0] addr_i;    //Address lines
+    reg     [WIDTH-1:0] w_data_i;       //Write data lines
+    wire    [WIDTH-1:0] r_data_o;       //Read data lines
+    reg     wr_rd_i;    //Write enable
+    reg     valid_i;    //Handshaking signal - Input
+    wire    ready_o;    //Handshaking Signal - Output
+
+    integer i;
+    
+    real start_addr;     //Starting address to write data to memory
+    real num_writes;     //Write data to give num of locations
+    
+    //Memory instantiation
+    memory #(
+            //Parameter overriding
+            .WIDTH(WIDTH),
+            .DEPTH(DEPTH),
+            .ADDR_WIDTH(ADDR_WIDTH)
+        )
+        m1(
+            .clk_i(clk_i),  //Clock
+            .rst_i(rst_i),  //Reset
+            .addr_i(addr_i),
+            .w_data_i(w_data_i),   
+            .r_data_o(r_data_o), 
+            .wr_rd_i(wr_rd_i),
+            .valid_i(valid_i),
+            .ready_o(ready_o)
+        );
+
+    //Setting default values
+    initial begin
+        clk_i = 0;
+        addr_i = 0;
+        w_data_i = 0;
+        addr_i = 0;
+        wr_rd_i = 0;
+        rst_i = 0;
+        valid_i = 0;
+    end
+    
+    //Clock
+    always begin
+        clk_i = 1; #5;
+        clk_i = 0; #5;
+    end
+    
+
+    initial begin
+        
+        rst_i = 1; #20;
+        rst_i = 0; 
+        
+        $value$plusargs("start_addr=%d",start_addr);
+        $value$plusargs("num_writes=%d",num_writes);
+        
+        if(start_addr+num_writes > DEPTH) begin
+            $display("\nERROR: NUM OF WRITES SHOULD NOT EXCEED DEPTH TO AVOID MEMORY OVERWRITE\n");
+            $finish;
+        end
+        //Task to perform write operation to the to memory
+        wr_data(start_addr,num_writes);
+
+        //Task to perform read operation from the memory
+        rd_data(start_addr,num_writes);
+
+        #100;
+        $finish;
+    end
+
+    initial begin
+        $monitor("Time = %0t\t i = %0h\t w_data_i = %h\t r_data_o = %h", $time, i, w_data_i, r_data_o);
+    end
+
+    
+    task wr_data (
+        input [WIDTH-1:0] start_addr_wr,
+        input [DEPTH : 0] num_writes_wr
+    ); 
+    begin
+        
+        for(i=start_addr_wr; i<start_addr_wr+num_writes_wr; i=i+1) begin
+            
+            @(posedge clk_i);
+            addr_i = i;
+            w_data_i = $random;
+            wr_rd_i = 1;
+            valid_i = 1;
+            wait (ready_o == 1);    //Wait till ready = 1
+            //$display("Time = %0t\t addr_i = %h\t w_data_i = %h", $time, addr_i, w_data_i);
+        end
+
+        #20;
+
+        addr_i = 0;
+        w_data_i = 0;
+        wr_rd_i = 0;
+        valid_i = 0;
+    end
+    endtask
+
+
+    task rd_data (
+        input [WIDTH-1:0] start_addr_rd,
+        input [DEPTH : 0] num_writes_rd
+    ); 
+    begin
+        
+        for(i=start_addr_rd; i<start_addr_rd+num_writes_rd; i=i+1) begin
+            
+            @(posedge clk_i);
+            addr_i = i;
+            wr_rd_i = 0;
+            valid_i = 1;
+            wait (ready_o == 1);    //Wait till ready = 1
+            #1;
+            //$display("Time = %0t\t addr_i = %h\t r_data_i = %h", $time, addr_i, r_data_o);
+        end
+
+        #30
+        addr_i = 0;
+        wr_rd_i = 1;
+        valid_i = 0;
+    end
+    endtask
+
+endmodule
+

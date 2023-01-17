@@ -1,0 +1,54 @@
+module memory
+    #(
+        parameter   WIDTH = 8,  //Memory width
+        parameter   DEPTH = 8,  //Memory depth
+        parameter   ADDR_WIDTH = 3  //Num of address lines
+    )
+    (
+        input   wire    clk_i,  //Clock
+        input   wire    rst_i,  //Reset
+        input   wire    [ADDR_WIDTH-1:0] addr_i,    //Address lines
+        input   wire    [WIDTH-1:0] w_data_i,       //Write data lines
+        output  reg     [WIDTH-1:0] r_data_o,       //Read data lines
+        input   wire    wr_rd_i,    //Write enable
+        input   wire    valid_i,    //Handshaking signal - Input
+        output  reg     ready_o     //Handshaking Signal - Output
+    );
+
+//Define memory
+reg [WIDTH-1:0] mem [DEPTH-1:0];
+
+//integer i;  //Loop variable to reset memory
+
+always @ (posedge clk_i) begin
+    
+    if(rst_i == 1) begin
+        ready_o <= 0;
+        r_data_o <= 0;
+       /* 
+        for(i=0; i<DEPTH; i=i+1)
+            mem[i] <= 0;
+        */
+    end
+
+    else begin
+        if(valid_i == 1) begin
+             
+            if(wr_rd_i == 1) begin
+                ready_o <= 1;
+                mem[addr_i] <= w_data_i;
+            end
+
+            else begin
+                ready_o <= 1;
+                r_data_o <= mem[addr_i];
+            end
+        end
+
+        else
+            ready_o <= 0;
+    end
+end
+
+endmodule
+
