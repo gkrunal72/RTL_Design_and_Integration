@@ -1,0 +1,11 @@
+vlog memory_backdoor_tb.v
+
+
+#vsim memory_backdoor_tb +start_addr=0 +num_locs=1024 +test_case="FD_WR_FD_RD"
+
+vsim memory_backdoor_tb +test_case=BD_WR_FD_RD +start_addr=0 +num_locs=1023
+
+add wave sim:/memory_backdoor_tb/dut/*
+
+add wave -position end sim:/memory_backdoor_tb/i
+run -all

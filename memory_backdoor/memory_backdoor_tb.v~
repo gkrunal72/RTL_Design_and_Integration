@@ -1,0 +1,208 @@
+`include "memory_backdoor.v"
+
+module  memory_backdoor_tb
+
+    #(
+        parameter WIDTH = 8,
+        parameter DEPTH = 1024,
+        parameter ADDR_LINES = 10
+    )
+    (
+        output  reg     clk_i,
+        output  reg     rst_i,
+        output  reg     wr_rd_i,
+        output  reg     [ADDR_LINES-1:0]    addr_i,
+        output  reg     [WIDTH-1:0]         wr_data_i,
+        input   wire    [WIDTH-1:0]         rd_data_o,
+        output  reg     valid_i,
+        input   wire    ready_o
+    );
+
+    //Elaboration args variable
+    reg     [ADDR_LINES:0]    start_addr;
+    reg     [ADDR_LINES:0]    num_locs;
+    reg     [30*8:1]    test_case;
+
+    //instantiate module
+    memory_backdoor #(
+            .WIDTH(WIDTH),
+            .DEPTH(DEPTH),
+            .ADDR_LINES(ADDR_LINES)
+        )   
+        dut //Instantiation of Memory_backdoor module
+        (
+            .clk_i(clk_i),
+            .rst_i(rst_i),
+            .wr_rd_i(wr_rd_i),
+            .addr_i(addr_i),
+            .wr_data_i(wr_data_i),
+            .rd_data_o(rd_data_o),
+            .valid_i(valid_i),
+            .ready_o(ready_o)
+        );
+
+
+    //Initialize outputs
+    initial begin
+        clk_i <= 0;
+        //rst_i <= 0;
+        wr_rd_i <= 0;
+        addr_i <= 0;
+        wr_data_i <= 0;
+        valid_i <= 0;
+    end
+
+    //Clock
+    always begin
+        clk_i = 0; #5;
+        clk_i = 1; #5;
+    end
+
+    initial begin
+        
+        $value$plusargs("test_case=%0s",test_case);
+        rst_i = 1;
+        #20;
+        rst_i = 0;
+
+        $value$plusargs("start_addr=%d",start_addr);
+        $value$plusargs("num_locs=%d",num_locs);
+
+        $display("test_case=%0s",test_case);
+        //display("start_addr+num_locs=%d",(start_addr+num_locs));
+
+        if(start_addr+num_locs <= DEPTH) begin
+            
+            case (test_case)
+                "FD_WR_FD_RD" : begin
+                    wr_mem_fd(start_addr,num_locs);
+                    rd_mem_fd(start_addr, num_locs);
+                end
+
+                "FD_WR_BD_RD" : begin
+                    wr_mem_fd(start_addr,num_locs);
+                    rd_mem_bd(start_addr, num_locs);
+                end
+
+                "BD_WR_FD_RD" : begin
+                    wr_mem_bd(start_addr,num_locs);
+                    rd_mem_fd(start_addr, num_locs);
+                end
+
+                "BD_WR_BD_RD" : begin
+                    wr_mem_bd(start_addr,num_locs);
+                    rd_mem_bd(start_addr, num_locs);
+                end
+
+                default : begin
+                    $display("ERROR: Entered test case is not valid");
+                end
+            endcase
+
+            //wr_mem_fd(start_addr,num_locs);
+            //rd_mem_fd(start_addr, num_locs);
+        end
+
+        else begin
+            $display("ERROR: Num of locations should not exceed DEPTH");
+            $display("start_addr+num_locs=%0d", (start_addr+num_locs));
+            $finish;
+        end
+
+        #100;
+        $finish;
+    
+    end
+    
+    //Loop variable
+    integer i;
+    
+    //Write memory - Front door
+    task wr_mem_fd
+        (
+            input [ADDR_LINES:0] start_addr,
+            input [ADDR_LINES:0] num_locs
+        );
+        begin
+            
+            $display("\nWrite_fd : Start\n");
+            
+            //$display("start_addr+num_locs=%d",(start_addr+num_locs));
+            
+            for(i=start_addr; i<=start_addr+num_locs; i=i+1) begin
+                
+                @(posedge clk_i)
+                valid_i <= 1;
+                wr_rd_i <= 1;
+                addr_i <= i;
+                wait (ready_o == 1);
+                wr_data_i <= $random;
+            end
+            
+            @(posedge clk_i)//Hold valid=1 for one more cycle to complete the last write operation
+            @(posedge clk_i)
+            valid_i <= 0;
+            wr_rd_i <= 0;
+            addr_i <= 0;
+            wr_data_i <= 0;
+            $display("\nWrite_fd : Stop\n");
+        end
+    endtask
+
+    //Read memory - Back door
+    task rd_mem_fd
+        (
+            input [ADDR_LINES:0] start_addr,
+            input [ADDR_LINES:0] num_locs
+        );
+        begin
+            $display("\nRead_fd : Start\n");
+
+            //$display("start_addr+num_locs=%d",(start_addr+num_locs));
+            
+            for(i=start_addr; i<=start_addr+num_locs; i=i+1) begin
+                
+                @(posedge clk_i)
+                valid_i <= 1;
+                wr_rd_i <= 0;
+                wait (ready_o == 1);
+                addr_i <= i;
+            end
+            
+            @(posedge clk_i)
+            @(posedge clk_i)
+            valid_i <= 0;
+            wr_rd_i <= 0;
+            addr_i <= 0;
+            $display("\nRead_fd : Stop\n");
+        end
+    endtask
+
+    task wr_mem_bd
+        (
+            input [ADDR_LINES:0] start_addr,
+            input [ADDR_LINES:0] num_locs
+        );
+        begin
+            $display("\nWrite_bd : Start\n");
+            
+            $readmemh("image.hex", dut.mem, start_addr, num_locs);
+            
+            $display("\nWrite_bd : Stop\n");
+        end
+    endtask
+
+    task rd_mem_bd
+        (
+            input [ADDR_LINES:0] start_addr,
+            input [ADDR_LINES:0] num_locs
+        );
+        begin
+            $display("\nWrite_bd : Start\n");
+            
+            $writememh("image.bin", dut.mem, start_addr, num_locs);
+            
+            $display("\nWrite_bd : Stop\n");
+        end
+    endtask
+endmodule
