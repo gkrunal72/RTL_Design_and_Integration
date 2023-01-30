@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kgandhi/OneDrive/RTL_Design_and_Integration/pattern_detector
+vpattern_detector
+Z1 !s110 1675119164
+!i10b 1
+!s100 @4RiW2Q5<oLfBng98?DD]0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IA6[Xk]`>60c]D=I4`1b<D1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1675116737
+8pattern_detector.v
+Fpattern_detector.v
+!i122 32
+L0 1 103
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1675119163.000000
+!s107 pattern_detector_mealy.v|pattern_detector.v|pattern_detector_tb.v|
+Z6 !s90 -reportprogress|300|pattern_detector_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vpattern_detector_mealy
+R1
+!i10b 1
+!s100 0^7@7:HGlPQ?Wioe1IKmm1
+R2
+IRUQ>c_gFj2Ylb>@JH>^2B0
+R3
+R0
+w1675118722
+8pattern_detector_mealy.v
+Fpattern_detector_mealy.v
+!i122 32
+L0 1 93
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 pattern_detector_mealy.v|pattern_detector.v|pattern_detector_tb.v|
+R6
+!i113 1
+R7
+vpattern_detector_tb
+R1
+!i10b 1
+!s100 hjKImkERA1RS^Y<EEPo6Z2
+R2
+I9g56a:^PW0hXX40FZ^EIY1
+R3
+R0
+w1675119151
+8pattern_detector_tb.v
+Fpattern_detector_tb.v
+!i122 32
+L0 4 63
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
