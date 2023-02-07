@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kgandhi/OneDrive/RTL_Design_and_Integration/sync_fifo
+vsync_fifo
+Z1 !s110 1675811026
+!i10b 1
+!s100 8c_8B[YhSoeHB`YAa?g;P3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IC5790@hfEg7NL_IcFcAV21
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1675808934
+8sync_fifo.v
+Fsync_fifo.v
+!i122 72
+L0 1 112
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1675811026.000000
+!s107 sync_fifo.v|sync_fifo_tb.v|
+Z6 !s90 -reportprogress|300|sync_fifo_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vsync_fifo_tb
+R1
+!i10b 1
+!s100 3=@[QBc8;0Jkc?`^5kkcD2
+R2
+I45;ZK>D8J0K:j[VFe6BP22
+R3
+R0
+w1675811022
+8sync_fifo_tb.v
+Fsync_fifo_tb.v
+!i122 72
+L0 4 122
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 sync_fifo.v|sync_fifo_tb.v|
+R6
+!i113 1
+R7
