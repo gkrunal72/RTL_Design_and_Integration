@@ -1,0 +1,7 @@
+vlog interrupt_controller_tb.v
+
+vsim interrupt_controller_tb +testcase=LO_REG_HI_PRIO
+
+add wave sim:/interrupt_controller_tb/ic1/*
+
+run -all
