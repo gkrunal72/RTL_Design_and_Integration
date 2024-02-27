@@ -1,0 +1,45 @@
+pwd
+# E:/SV
+
+
+ls
+# Learn_sv.mpf  class_object.sv  run.do  transcript  work  
+dir
+#  Volume in drive E is Data
+#  Volume Serial Number is DCB0-E295
+# 
+#  Directory of E:\SV
+# 
+# 2024-02-10  11:48 PM    <DIR>          .
+# 2024-02-10  11:48 PM    <DIR>          ..
+# 2024-02-10  11:06 PM               291 class_object.sv
+# 2024-02-10  11:47 PM            17,869 Learn_sv.mpf
+# 2024-02-10  11:48 PM                39 run.do
+# 2024-02-10  11:49 PM                83 transcript
+# 2024-02-10  11:46 PM    <DIR>          work
+#                4 File(s)         18,282 bytes
+#                3 Dir(s)  188,952,547,328 bytes free
+
+
+
+do run.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:49:46 on Feb 10,2024
+# vlog -reportprogress 300 class_object.sv 
+# -- Compiling package class_object_sv_unit
+# ** Warning: class_object.sv(8): (vlog-2250) Function "display" has no return value assignment.
+# -- Compiling module tb
+# ** Warning: class_object.sv(19): (vlog-2240) Treating stand-alone use of function 'display' as an implicit VOID cast.
+# 
+# Top level modules:
+# 	tb
+# End time: 23:49:46 on Feb 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vsim tb 
+# Start time: 23:49:46 on Feb 10,2024
+# Loading sv_std.std
+# Loading work.class_object_sv_unit
+# Loading work.tb
+# [Base] addr=0xfacecafe
+# End time: 23:50:25 on Feb 10,2024, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 4
